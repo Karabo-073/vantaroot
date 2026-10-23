@@ -14,10 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "VantaRoot",
-    template: "%s | VantaRoot",
-  },
+  title: "VantaRoot",
   description:
     "VantaRoot is a cybersecurity research organisation focused on wireless security. Breaking Systems. Advancing Security.",
   icons: {
