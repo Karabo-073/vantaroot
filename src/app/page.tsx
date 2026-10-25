@@ -38,14 +38,14 @@ const publications = [
     category: "Bluetooth security",
     title: "Bluetooth DoS: Practical Investigation",
     tags: ["Bluetooth", "Kali Linux", "Security Research"],
-    href: "https://vantaroot.vercel.app/writeups/bluetooth-dos-research",
+    href: null,
   },
   {
     id: "BLOG_02",
     category: "Wireless security",
     title: "Wi-Fi Security: WPA2 Handshake Analysis",
     tags: ["Wi-Fi", "WPA2", "Aircrack-ng"],
-    href: "https://vantaroot.vercel.app/writeups/wifi-security-research",
+    href: null,
   },
   {
     id: "BLOG_03",
