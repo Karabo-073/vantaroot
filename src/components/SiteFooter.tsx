@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const links = [["Blogs", "/blogs"], ["Projects", "/projects"], ["Team", "/team"], ["Books", "/books"], ["Contact", "/contact"]];
+const links = [["Blogs", "/blogs"], ["Services", "/services"], ["Team", "/team"], ["Books", "/books"], ["Contact", "/contact"]];
 
 export default function SiteFooter() {
   return (

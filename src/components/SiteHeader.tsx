@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export const nav = [
   ["Home", "/"],
   ["Blogs", "/blogs"],
-  ["Projects", "/projects"],
+  ["Services", "/services"],
   ["Team", "/team"],
   ["Books", "/books"],
   ["Contact", "/contact"],

@@ -1,34 +1,34 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import BooksShowcase from "@/components/BooksShowcase";
 
-/* ---------- Data ---------- */
+/* ---------- Research data ---------- */
 
 const disciplines = [
   {
     id: "WIFI",
     title: "Wi-Fi Security",
-    body: "IEEE 802.11 authentication, handshakes and network configuration weaknesses.",
+    body: "IEEE 802.11 authentication, handshakes, network configuration and wireless security weaknesses.",
     proto: "802.11 / WPA2 / WPA3",
   },
   {
     id: "BLE",
     title: "Bluetooth & BLE",
-    body: "Pairing security, device discovery and the behaviour of connected products.",
+    body: "Pairing security, device discovery, protocol behaviour and connected-device investigations.",
     proto: "Bluetooth / BLE",
   },
   {
     id: "AUTO",
     title: "Automotive Wireless",
-    body: "Wireless interfaces and keyless-entry systems, studied in authorised test environments.",
-    proto: "RF / Keyless entry",
+    body: "Wireless interfaces, keyless-entry technologies and automotive security in authorised test environments.",
+    proto: "RF / Keyless Entry",
   },
   {
     id: "RF",
     title: "RF, IoT & Connected Devices",
-    body: "Radio-frequency behaviour and the attack surface of everyday connected hardware.",
-    proto: "RF / IoT",
+    body: "Radio-frequency behaviour and the security of everyday connected hardware and communication systems.",
+    proto: "RF / IoT / Hardware",
   },
 ];
 
@@ -44,87 +44,46 @@ const publications = [
     id: "BLOG_02",
     category: "Wireless security",
     title: "Wi-Fi Security: WPA2 Handshake Analysis",
-    tags: ["Wi-Fi", "WPA2", "Aircrack-ng", "Wireless Research"],
+    tags: ["Wi-Fi", "WPA2", "Aircrack-ng"],
     href: "https://vantaroot.vercel.app/writeups/wifi-security-research",
   },
   {
     id: "BLOG_03",
     category: "Evil twin security",
     title: "Evil Twin Threats: Android and Wi-Fi",
-    tags: ["Evil Twin", "Wi-Fi", "Android", "Wireless Research"],
+    tags: ["Evil Twin", "Wi-Fi", "Android"],
     href: null,
   },
 ];
 
-const projects = [
-  {
-    id: "PROJECT_01",
-    status: "IN DEVELOPMENT",
-    title: "Wireless Security Lab",
-    body: "A controlled environment for Wi-Fi, Bluetooth and connected-device testing, built around reproducible experiments and clear documentation.",
-  },
-  {
-    id: "PROJECT_02",
-    status: "IN DEVELOPMENT",
-    title: "Open-source security tools",
-    body: "Utilities and workflows for ethical testing, repeatable experiments and security education.",
-  },
-  {
-    id: "PROJECT_03",
-    status: "PLANNED",
-    title: "Automotive wireless research",
-    body: "Security of automotive wireless technologies and keyless-entry systems in authorised test environments.",
-  },
-];
-
-const team = [
-  {
-    initials: "MM",
-    name: "Manuel Molapo",
-    role: "Founder & Cybersecurity Research Lead",
-    email: "Manuel@vantaroot.com",
-  },
-  {
-    initials: "LM",
-    name: "Lehlogonolo Maja",
-    role: "Chief Marketing Officer",
-    email: "Lehlogonolo@vantaroot.com",
-  },
-  {
-    initials: "AC",
-    name: "Atlegang Chauke",
-    role: "Chief Information Officer",
-    email: "Atlegang@vantaroot.com",
-  },
-  {
-    initials: "TK",
-    name: "Tebatso Kekana",
-    role: "Chief Operating Officer",
-    email: "Tebatso@vantaroot.com",
-  },
-];
-
+// Image paths must match the real filenames in /public (case-sensitive on Vercel).
 const books = [
   {
-    title: "Binary Exploitation & Cryptography",
-    body: "Low-level software security and the foundations of cryptography.",
-    status: "PUBLICATION",
+    id: "BOOK_01",
+    title: "Wi-Fi Hacking",
+    body: "Explore wireless networks, Wi-Fi protocols and practical security research.",
+    image: "/wifi.png",
+    number: "01",
   },
   {
-    title: "The Maths Behind Cryptography",
-    body: "The mathematical principles that underpin cryptographic systems.",
-    status: "PUBLICATION",
+    id: "BOOK_02",
+    title: "Car Hacking",
+    body: "Investigate automotive wireless technologies and connected vehicle security.",
+    image: "/car.png",
+    number: "02",
   },
   {
-    title: "Android Security",
-    body: "Android security concepts and mobile application testing.",
-    status: "IN DEVELOPMENT",
+    id: "BOOK_03",
+    title: "Satellite Hacking",
+    body: "Explore satellite communication systems, radio technologies and their security boundaries.",
+    image: "/satellite.png",
+    number: "03",
   },
 ];
 
 const nav = [
   ["Research", "/blogs"],
-  ["Projects", "/projects"],
+  ["Services", "/services"],
   ["Team", "/team"],
   ["Books", "/books"],
   ["Contact", "/contact"],
@@ -139,7 +98,7 @@ const focus =
 
 export default function Home() {
   return (
-    <div className="bg-[#08090B] text-[#F4F4F5] selection:bg-[#E52432]">
+    <div className="overflow-hidden bg-[#08090B] text-[#F4F4F5] selection:bg-[#E52432]">
       <a
         href="#main"
         className={`sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-[#E52432] focus:px-4 focus:py-2 ${focus}`}
@@ -148,11 +107,11 @@ export default function Home() {
       </a>
 
       {/* Navigation */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 sm:px-10">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/80 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 sm:px-10">
           <Link
             href="/"
-            className={`text-lg font-black tracking-[-0.06em] ${focus}`}
+            className={`text-lg font-black tracking-[-0.06em] transition-transform duration-300 hover:scale-105 ${focus}`}
           >
             VANTAROOT<span className="text-[#E52432]">.</span>
           </Link>
@@ -165,10 +124,8 @@ export default function Home() {
               <Link
                 key={href}
                 href={href}
-                className={`text-xs text-[#969BA5] transition-colors hover:text-white sm:text-sm ${focus} ${
-                  href === "/team" || href === "/books"
-                    ? "hidden md:inline"
-                    : ""
+                className={`text-xs text-[#969BA5] transition-colors duration-300 hover:text-[#E52432] sm:text-sm ${focus} ${
+                  href === "/team" ? "hidden md:inline" : ""
                 }`}
               >
                 {label}
@@ -179,113 +136,204 @@ export default function Home() {
       </header>
 
       <main id="main">
-        {/* LAYER 1 — Hero */}
-        <section className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-white/10">
-          <div className="absolute inset-0 bg-[#08090B]" />
+        {/* LAYER 1 — Cinematic hero */}
+        <section className="relative isolate flex min-h-screen items-center overflow-hidden border-b border-white/10">
+          {/* Background */}
+          <div className="absolute inset-0 -z-20 bg-[#08090B]" />
 
-          <div className="pointer-events-none absolute -right-40 top-1/4 h-[500px] w-[500px] rounded-full bg-[#E52432]/10 blur-[140px]" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-32 top-10 -z-10 h-[650px] w-[650px] animate-pulse rounded-full bg-[#E52432]/15 blur-[150px]"
+          />
 
-          <div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-12 px-5 pb-16 pt-32 sm:px-10 lg:grid-cols-2 lg:gap-16">
-            {/* LEFT — Text */}
-            <div className="relative z-10">
-              <div className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <p className={`${mono} text-[#969BA5]`}>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-48 -left-40 -z-10 h-[550px] w-[550px] rounded-full bg-red-950/30 blur-[150px]"
+          />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)",
+              backgroundSize: "70px 70px",
+              maskImage:
+                "linear-gradient(to bottom, black, transparent 90%)",
+            }}
+          />
+
+          <div className="mx-auto grid w-full max-w-[1800px] items-center gap-10 px-5 pb-16 pt-28 sm:px-10 lg:min-h-screen lg:grid-cols-[0.82fr_1.18fr] lg:gap-6 lg:py-24">
+            {/* LEFT — Headline */}
+            <div className="relative z-20 py-8 lg:py-12">
+              <div className="mb-8 flex flex-wrap items-center gap-x-4 gap-y-3">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#E52432] opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#E52432]" />
+                </span>
+
+                <p className={`${mono} text-[#C4C7CE]`}>
                   Independent security research
                 </p>
 
                 <span className="hidden h-1 w-1 rounded-full bg-[#E52432] sm:block" />
 
-                <p className={`${mono} text-[#969BA5]`}>
+                <p className={`${mono} text-[#777D88]`}>
                   Johannesburg, South Africa
                 </p>
               </div>
 
-              <h1 className="text-[clamp(2.75rem,6.5vw,6.5rem)] font-black leading-[0.9] tracking-[-0.06em]">
-                BREAKING SYSTEMS.
-                <span className="mt-3 block text-transparent [-webkit-text-stroke:1.5px_#F4F4F5]">
-                  ADVANCING SECURITY.
+              <h1 className="max-w-4xl text-[clamp(3rem,6.5vw,7rem)] font-black leading-[0.84] tracking-[-0.075em]">
+                BREAKING
+                <span className="mt-3 block">SYSTEMS.</span>
+                <span className="mt-4 block text-transparent [-webkit-text-stroke:1.5px_#F4F4F5]">
+                  ADVANCING
+                </span>
+                <span className="mt-3 block text-[#E52432]">
+                  SECURITY.
                 </span>
               </h1>
 
               <p className="mt-8 max-w-xl text-base leading-7 text-[#C4C7CE] sm:text-lg sm:leading-8">
                 Independent research into wireless technologies, connected
-                devices, and the security boundaries that shape our connected
+                devices and the security boundaries shaping our connected
                 world.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/blogs"
-                  className={`bg-[#E52432] px-7 py-4 text-sm font-bold transition-colors hover:bg-[#ff3544] ${focus}`}
+                  className={`group inline-flex items-center gap-3 bg-[#E52432] px-7 py-4 text-sm font-bold transition-all duration-300 hover:-translate-y-1 hover:bg-[#ff3544] hover:shadow-[0_12px_40px_rgba(229,36,50,0.25)] ${focus}`}
                 >
                   EXPLORE RESEARCH
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                  </span>
                 </Link>
 
                 <Link
-                  href="/projects"
-                  className={`border border-white/25 px-7 py-4 text-sm font-bold transition-colors hover:border-white hover:bg-white/5 ${focus}`}
+                  href="/books"
+                  className={`group inline-flex items-center gap-3 border border-white/25 px-7 py-4 text-sm font-bold transition-all duration-300 hover:-translate-y-1 hover:border-[#E52432] hover:bg-[#E52432]/10 ${focus}`}
                 >
-                  VIEW PROJECTS
+                  EXPLORE BOOKS
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                  </span>
                 </Link>
               </div>
 
               <div className="mt-10 flex items-center gap-4 border-t border-white/15 pt-5">
-                <span className="h-2 w-2 rounded-full bg-[#E52432]" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-[#E52432]" />
                 <p className={mono}>
-                  Wireless systems / Protocol analysis
+                  Wi-Fi / Bluetooth / Automotive / RF
                 </p>
               </div>
             </div>
 
-            {/* RIGHT — Wireless image */}
-            <div className="relative mx-auto w-full max-w-[620px] lg:ml-auto">
-              <div className="absolute inset-8 rounded-full bg-[#E52432]/15 blur-[100px]" />
+            {/* RIGHT — Oversized moving image */}
+            <div className="relative mx-auto w-full min-w-0 lg:-mr-10 lg:ml-auto lg:w-[calc(100%+40px)]">
+              {/* Atmospheric glow */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-[8%] animate-pulse rounded-full bg-[#E52432]/20 blur-[100px]"
+              />
 
-              <div className="relative overflow-hidden border border-white/10 bg-[#101216]">
-                <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#E52432]/10 via-transparent to-[#08090B]/30" />
-
-                <Image
-                  src="/wireless_wifi.png"
-                  alt="Wireless technology and Wi-Fi security research"
-                  width={1200}
-                  height={1200}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="h-auto max-h-[620px] w-full object-contain transition-transform duration-700 hover:scale-[1.03]"
+              {/* Image frame */}
+              <div className="group relative isolate overflow-hidden border border-white/15 bg-[#101216] shadow-[0_0_100px_rgba(229,36,50,0.10)] transition-all duration-700 hover:border-[#E52432]/60 hover:shadow-[0_0_100px_rgba(229,36,50,0.20)]">
+                {/* Animated scan lines */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-20 opacity-20"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.08) 4px)",
+                  }}
                 />
 
-                <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#08090B] via-[#08090B]/75 to-transparent p-5 pt-24 sm:p-7 sm:pt-28">
-                  <div className="flex items-end justify-between gap-4">
-                    <div>
-                      <p className={`${mono} text-[#E52432]`}>
-                        RESEARCH_001 / WIRELESS
-                      </p>
-                      <p className="mt-2 text-sm text-white/75">
-                        Wi-Fi · Bluetooth · RF · Connected devices
-                      </p>
-                    </div>
+                {/* Moving red edge */}
+                <div className="absolute left-0 right-0 top-0 z-30 h-px origin-left animate-[pulse_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-[#E52432] to-transparent" />
 
-                    <span className="font-mono text-xs text-white/40">
-                      01—04
-                    </span>
+                <div className="relative aspect-[4/3] min-h-[350px] w-full overflow-hidden sm:aspect-[5/4] lg:aspect-[4/5] lg:min-h-[650px] xl:aspect-[5/4] xl:min-h-[700px]">
+                  <Image
+                    src="/wireless_wifi.png"
+                    alt="VantaRoot wireless security research"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 65vw"
+                    className="object-cover object-center transition-transform duration-[1800ms] ease-out group-hover:scale-110"
+                  />
+
+                  {/* Image overlays */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#E52432]/15 via-transparent to-[#08090B]/65" />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08090B] via-transparent to-[#08090B]/10" />
+
+                  {/* HUD corners */}
+                  <div className="absolute left-5 top-5 h-8 w-8 border-l border-t border-[#E52432] sm:left-8 sm:top-8 sm:h-12 sm:w-12" />
+                  <div className="absolute right-5 top-5 h-8 w-8 border-r border-t border-[#E52432] sm:right-8 sm:top-8 sm:h-12 sm:w-12" />
+                  <div className="absolute bottom-5 left-5 h-8 w-8 border-b border-l border-[#E52432] sm:bottom-8 sm:left-8 sm:h-12 sm:w-12" />
+                  <div className="absolute bottom-5 right-5 h-8 w-8 border-b border-r border-[#E52432] sm:bottom-8 sm:right-8 sm:h-12 sm:w-12" />
+
+                  {/* Floating research label */}
+                  <div className="absolute left-8 top-20 z-20 max-w-[80%] border border-white/15 bg-[#08090B]/65 p-4 backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1 sm:left-12 sm:top-24">
+                    <p className={`${mono} text-[#E52432]`}>
+                      VANTAROOT / RESEARCH
+                    </p>
+                    <p className="mt-2 text-sm font-bold sm:text-base">
+                      Explore the invisible.
+                    </p>
+                  </div>
+
+                  {/* Bottom image caption */}
+                  <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-10">
+                    <div className="flex items-end justify-between gap-4">
+                      <div>
+                        <p className={`${mono} text-[#E52432]`}>
+                          WIRELESS SYSTEMS / 001
+                        </p>
+                        <h2 className="mt-3 text-2xl font-black tracking-tight sm:text-4xl">
+                          BEYOND THE SURFACE.
+                        </h2>
+                        <p className="mt-3 max-w-md text-sm leading-6 text-white/70 sm:text-base">
+                          Wi-Fi. Bluetooth. Automotive. Radio frequency.
+                        </p>
+                      </div>
+
+                      <span className="hidden font-mono text-xs text-white/40 sm:block">
+                        VR—001
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-4 flex items-center justify-between">
-                <span className={`${mono} text-white/35`}>
+              {/* Image metadata */}
+              <div className="mt-4 flex items-center justify-between gap-4">
+                <span className={`${mono} text-white/40`}>
                   SIGNAL / ANALYSIS
                 </span>
-                <span className={`${mono} text-white/35`}>
+                <span className={`${mono} text-white/40`}>
                   VANTAROOT LABS
                 </span>
               </div>
             </div>
           </div>
+
+          {/* Scroll indicator */}
+          <a
+            href="#mission"
+            aria-label="Scroll to our mission"
+            className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/40 transition-colors hover:text-[#E52432] lg:flex"
+          >
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em]">
+              Scroll to explore
+            </span>
+            <span className="h-8 w-px origin-top animate-pulse bg-gradient-to-b from-[#E52432] to-transparent" />
+          </a>
         </section>
 
         {/* LAYER 2 — Mission */}
-        <Layer className="relative overflow-hidden">
+        <Layer id="mission" className="relative overflow-hidden">
           <svg
             aria-hidden="true"
             viewBox="0 0 600 600"
@@ -362,18 +410,20 @@ export default function Home() {
         <Layer tone="panel">
           <Heading
             kicker="Research disciplines"
-            title="Four areas, one connected surface."
+            title="Four areas. One connected surface."
           />
 
           <ul className="mt-14 grid border-t border-white/10 md:grid-cols-2">
             {disciplines.map((d) => (
               <li
                 key={d.id}
-                className="group relative border-b border-white/10 p-8 transition-colors hover:bg-white/[0.025] md:odd:border-r sm:p-12"
+                className="group relative border-b border-white/10 p-8 transition-all duration-500 hover:bg-white/[0.025] md:odd:border-r sm:p-12"
               >
-                <span className={`${mono} text-[#E52432]`}>{d.proto}</span>
+                <span className={`${mono} text-[#E52432]`}>
+                  {d.proto}
+                </span>
 
-                <h3 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
+                <h3 className="mt-6 text-3xl font-bold tracking-tight transition-transform duration-300 group-hover:translate-x-2 sm:text-4xl">
                   {d.title}
                 </h3>
 
@@ -383,10 +433,12 @@ export default function Home() {
 
                 <span
                   aria-hidden="true"
-                  className="absolute bottom-6 right-8 font-mono text-5xl font-black tracking-tighter text-white/[0.06] transition-colors group-hover:text-[#E52432]/30"
+                  className="absolute bottom-6 right-8 font-mono text-5xl font-black tracking-tighter text-white/[0.06] transition-all duration-500 group-hover:scale-110 group-hover:text-[#E52432]/30"
                 >
                   {d.id}
                 </span>
+
+                <span className="absolute bottom-0 left-0 h-px w-0 bg-[#E52432] transition-all duration-500 group-hover:w-full" />
               </li>
             ))}
           </ul>
@@ -422,7 +474,7 @@ export default function Home() {
                     {p.category}
                   </p>
 
-                  <h3 className="mt-3 text-2xl font-bold leading-tight tracking-tight">
+                  <h3 className="mt-3 text-2xl font-bold leading-tight tracking-tight transition-colors duration-300 group-hover:text-[#E52432]">
                     {p.title}
                   </h3>
 
@@ -430,7 +482,7 @@ export default function Home() {
                     {p.tags.map((tag) => (
                       <li
                         key={tag}
-                        className="border border-white/10 px-2 py-1 text-xs text-[#969BA5]"
+                        className="border border-white/10 px-2 py-1 text-xs text-[#969BA5] transition-colors duration-300 group-hover:border-white/20"
                       >
                         {tag}
                       </li>
@@ -446,7 +498,7 @@ export default function Home() {
               );
 
               const cls =
-                "group flex min-h-[380px] flex-col bg-[#08090B] p-8 transition-colors hover:bg-[#101216]";
+                "group relative flex min-h-[380px] flex-col overflow-hidden bg-[#08090B] p-8 transition-all duration-500 hover:bg-[#101216]";
 
               return p.href ? (
                 <a
@@ -456,6 +508,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className={`${cls} ${focus}`}
                 >
+                  <span className="absolute left-0 top-0 h-px w-0 bg-[#E52432] transition-all duration-500 group-hover:w-full" />
                   {inner}
                 </a>
               ) : (
@@ -467,114 +520,24 @@ export default function Home() {
           </div>
         </Layer>
 
-        {/* LAYER 5 — Projects */}
+        {/* LAYER 5 — Books (animated, client component) */}
         <Layer tone="panel">
           <Heading
-            kicker="Projects"
-            title="Research made practical."
-            action={{ label: "All projects", href: "/projects" }}
-          />
-
-          <ul className="mt-14 divide-y divide-white/10 border-y border-white/10">
-            {projects.map((p) => (
-              <li
-                key={p.id}
-                className="grid gap-4 py-8 md:grid-cols-[180px_1fr_2fr] md:items-baseline md:gap-10"
-              >
-                <span
-                  className={`${mono} ${
-                    p.status === "PLANNED"
-                      ? "text-[#969BA5]"
-                      : "text-[#E52432]"
-                  }`}
-                >
-                  {p.status}
-                </span>
-
-                <h3 className="text-2xl font-bold tracking-tight">
-                  {p.title}
-                </h3>
-
-                <p className="leading-7 text-[#969BA5]">{p.body}</p>
-              </li>
-            ))}
-          </ul>
-        </Layer>
-
-        {/* LAYER 6 — Team */}
-        <Layer>
-          <Heading
-            kicker="Team"
-            title="Independent thinking. Shared mission."
-            action={{ label: "Full team", href: "/team" }}
-          />
-
-          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <li key={member.email} className="group">
-                <div
-                  aria-hidden="true"
-                  className="grid h-40 place-items-center border border-white/10 bg-[linear-gradient(135deg,#191b21,#0b0c0f)] text-5xl font-black tracking-tighter text-white/80 transition-colors group-hover:border-[#E52432]/50"
-                >
-                  {member.initials}
-                </div>
-
-                <h3 className="mt-5 text-lg font-bold">{member.name}</h3>
-
-                <p className="mt-1 text-sm text-[#969BA5]">{member.role}</p>
-
-                <a
-                  href={`mailto:${member.email}`}
-                  className={`mt-3 block break-words text-sm transition-colors hover:text-[#E52432] ${focus}`}
-                >
-                  {member.email}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Layer>
-
-        {/* LAYER 7 — Books */}
-        <Layer tone="panel">
-          <Heading
-            kicker="Books"
+            kicker="Books & knowledge"
             title="Knowledge is a tool."
-            action={{ label: "Library", href: "/books" }}
+            action={{ label: "Explore the library", href: "/books" }}
           />
 
-          <ul className="mt-14 grid gap-10 md:grid-cols-3">
-            {books.map((book) => (
-              <li key={book.title} className="flex gap-6">
-                <div className="flex h-52 w-36 shrink-0 flex-col justify-between border-l-4 border-[#E52432] bg-[#0d0e12] p-4 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.9)]">
-                  <span className={`${mono} text-[9px] text-[#E52432]`}>
-                    VantaRoot
-                  </span>
-
-                  <span className="text-sm font-black uppercase leading-tight tracking-tight">
-                    {book.title}
-                  </span>
-                </div>
-
-                <div>
-                  <span className={`${mono} text-[#E52432]`}>
-                    {book.status}
-                  </span>
-
-                  <h3 className="mt-3 text-lg font-bold leading-snug">
-                    {book.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-[#969BA5]">
-                    {book.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <BooksShowcase books={books} />
         </Layer>
 
-        {/* LAYER 8 — Collaboration */}
-        <section className="relative overflow-hidden border-y border-[#E52432]/40 bg-[radial-gradient(ellipse_at_bottom_right,rgba(229,36,50,0.18),transparent_60%)] px-5 py-32 sm:px-10 sm:py-44">
+        {/* LAYER 6 — Collaboration */}
+        <section className="relative isolate overflow-hidden border-y border-[#E52432]/40 bg-[#08090B] px-5 py-28 sm:px-10 sm:py-40">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-32 top-0 -z-10 h-[500px] w-[500px] animate-pulse rounded-full bg-[#E52432]/15 blur-[130px]"
+          />
+
           <div className="mx-auto max-w-[1400px]">
             <p className={`${mono} text-[#E52432]`}>
               Collaborate with VantaRoot
@@ -585,27 +548,33 @@ export default function Home() {
             </h2>
 
             <p className="mt-8 max-w-xl text-lg leading-8 text-[#C4C7CE]">
-              Have a research proposal, a security concern, or an idea worth
+              Have a research proposal, a security concern or an idea worth
               investigating? Start a conversation with VantaRoot.
             </p>
 
             <Link
               href="/contact"
-              className={`mt-10 inline-block bg-[#E52432] px-8 py-4 text-sm font-bold transition-colors hover:bg-[#ff3544] ${focus}`}
+              className={`group mt-10 inline-flex items-center gap-4 bg-[#E52432] px-8 py-4 text-sm font-bold transition-all duration-300 hover:-translate-y-1 hover:bg-[#ff3544] hover:shadow-[0_12px_40px_rgba(229,36,50,0.25)] ${focus}`}
             >
-              CONTACT THE TEAM
+              CONTACT VANTAROOT
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                ↗
+              </span>
             </Link>
           </div>
         </section>
       </main>
 
-      {/* LAYER 9 — Footer */}
+      {/* LAYER 7 — Footer */}
       <footer className="px-5 py-14 sm:px-10">
         <div className="mx-auto grid max-w-[1400px] gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <p className="text-lg font-black tracking-[-0.06em]">
+            <Link
+              href="/"
+              className={`inline-block text-lg font-black tracking-[-0.06em] ${focus}`}
+            >
               VANTAROOT<span className="text-[#E52432]">.</span>
-            </p>
+            </Link>
 
             <p className="mt-2 text-sm text-[#969BA5]">
               Breaking Systems. Advancing Security.
@@ -617,10 +586,10 @@ export default function Home() {
             </p>
           </div>
 
-          <nav aria-label="Footer">
-            <p className={`${mono} text-[#969BA5]`}>Site</p>
+          <nav aria-label="Footer navigation">
+            <p className={`${mono} text-[#969BA5]`}>Explore</p>
 
-            <ul className="mt-3 space-y-2 text-sm">
+            <ul className="mt-3 space-y-3 text-sm">
               {nav.map(([label, href]) => (
                 <li key={href}>
                   <Link
@@ -637,21 +606,22 @@ export default function Home() {
           <div>
             <p className={`${mono} text-[#969BA5]`}>Research focus</p>
 
-            <p className="mt-3 text-sm leading-6">
-              Wi-Fi, Bluetooth, RF, automotive wireless and connected devices.
+            <p className="mt-3 text-sm leading-6 text-[#C4C7CE]">
+              Wi-Fi, Bluetooth, RF, automotive wireless, satellite
+              communications and connected devices.
             </p>
 
-            <a
-              href="mailto:Manuel@vantaroot.com"
+            <Link
+              href="/contact"
               className={`mt-4 inline-block text-sm text-[#969BA5] transition-colors hover:text-[#E52432] ${focus}`}
             >
-              Manuel@vantaroot.com
-            </a>
+              Get in touch ↗
+            </Link>
           </div>
         </div>
 
-        <p className="mx-auto mt-12 max-w-[1400px] border-t border-white/10 pt-6 text-xs text-[#969BA5]">
-          © 2026 VantaRoot. Johannesburg, South Africa.
+        <p className="mx-auto mt-12 max-w-[1400px] border-t border-white/10 pt-6 text-xs text-[#777D88]">
+         © 2026 VantaRoot. Johannesburg, South Africa.
         </p>
       </footer>
     </div>
@@ -664,13 +634,16 @@ function Layer({
   children,
   tone,
   className = "",
+  id,
 }: {
   children: ReactNode;
   tone?: "panel";
   className?: string;
+  id?: string;
 }) {
   return (
     <section
+      id={id}
       className={`relative border-b border-white/10 px-5 py-24 sm:px-10 sm:py-36 ${
         tone === "panel" ? "bg-[#101216]" : ""
       } ${className}`}
