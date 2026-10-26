@@ -506,7 +506,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car6.png",
+      src: "/blogs/car/car6.png",
       alt: "ICSim controller window",
     },
     {
@@ -515,7 +515,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car7.png",
+      src: "/blogs/car/car7.png",
       alt: "ICSim controller input reference",
     },
 
