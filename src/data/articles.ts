@@ -379,7 +379,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car1.png",
+      src: "/blogs/car/car1.png",
       alt: "Installing SDL2 dependencies on Kali Linux",
     },
 
@@ -399,7 +399,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car1.png",
+      src: "/blogs/car/car1.png",
       alt: "CAN utilities installation reference",
     },
 
@@ -419,7 +419,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car2.png",
+      src: "/blogs/car/car2.png",
       alt: "Downloading the ICSim project",
     },
     {
@@ -433,7 +433,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car3.png",
+      src: "/blogs/car/car3.png",
       alt: "ICSim project directory",
     },
 
@@ -457,7 +457,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car4.png",
+      src: "/blogs/car/car4.png",
       alt: "Configuring the virtual CAN interface",
     },
 
@@ -477,7 +477,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car4.png",
+      src: "/blogs/car/car4.png",
       alt: "ICSim simulated vehicle dashboard",
     },
 
@@ -497,7 +497,7 @@ cat cameras.txt`,
     },
     {
       type: "image",
-      src: "/blog/car/car5.png",
+      src: "/blogs/car/car5.png",
       alt: "Starting the ICSim controller",
     },
     {
